@@ -26,4 +26,12 @@ describe('LottoGeneratorService', () => {
       );
     }
   );
+
+  test('로또 번호는 오름차순으로 정렬되어 있어야 한다.', () => {
+    const lottos = LottoGeneratorService.generate(1000);
+    const lotto = lottos[0];
+
+    // 원본 배열과 정렬된 배열이 동일한지 비교
+    expect(lotto).toEqual([...lotto].sort((a, b) => a - b));
+  });
 });
