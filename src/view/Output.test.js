@@ -18,8 +18,8 @@ describe('Output 모듈 테스트', () => {
     Output.printLottos(lottos);
 
     // then
-    expect(Console.print).toHaveBeenCalledTimes(1 + lottos.length);
-    expect(Console.print).toHaveBeenNthCalledWith(1, '2개를 구매했습니다.');
+    expect(Console.print).toHaveBeenCalledTimes(1 + lottos.length + 1);
+    expect(Console.print).toHaveBeenNthCalledWith(1, '\n2개를 구매했습니다.');
     expect(Console.print).toHaveBeenNthCalledWith(2, lottos[0]);
     expect(Console.print).toHaveBeenNthCalledWith(3, lottos[1]);
   });
