@@ -13,4 +13,12 @@ describe('Input 모듈 테스트', () => {
 
     expect(result).toBe(8000);
   });
+
+  test('당첨 번호를 입력받아 반환한다.', async () => {
+    Console.readLineAsync = jest.fn().mockResolvedValue('1,2,3,4,5,6');
+
+    const result = await Input.winningNumbers();
+
+    expect(result).toBe('1,2,3,4,5,6');
+  });
 });
