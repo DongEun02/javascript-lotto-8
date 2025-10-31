@@ -21,4 +21,12 @@ describe('Input 모듈 테스트', () => {
 
     expect(result).toBe('1,2,3,4,5,6');
   });
+
+  test('보너스 번호를 입력받아 반환한다.', async () => {
+    Console.readLineAsync = jest.fn().mockResolvedValue('30');
+
+    const result = await Input.bonusNumber();
+
+    expect(result).toBe(30);
+  });
 });
