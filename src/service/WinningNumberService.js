@@ -1,6 +1,12 @@
+import Lotto from '../domain/Lotto.js';
+
 const WinningNumberService = {
-  parse(winningNumbers) {
-    return winningNumbers.split(',').map(Number);
+  parse(input) {
+    return input.split(',').map(Number);
+  },
+  createWinningLotto(input) {
+    const numbers = this.parse(input);
+    return new Lotto(numbers);
   },
 };
 

@@ -9,7 +9,8 @@ class App {
     const lottos = LottoGeneratorService.generate(purchaseAmount);
     Output.printLottos(lottos);
     const winningNumbersString = await Input.winningNumbers();
-    const winningNumbers = WinningNumberService.parse(winningNumbersString);
+    const winningNumbers =
+      WinningNumberService.createWinningLotto(winningNumbersString);
     const bonusNumber = await Input.bonusNumber();
   }
 }
