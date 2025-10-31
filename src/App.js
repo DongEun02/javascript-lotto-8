@@ -10,6 +10,7 @@ class App {
     Output.printLottos(lottos);
     const winningNumbersString = await Input.winningNumbers();
     const winningNumbers = WinningNumberService.parse(winningNumbersString);
+    const bonusNumber = await Input.bonusNumber();
   }
 }
 

@@ -9,6 +9,12 @@ const Input = {
     const input = await Console.readLineAsync('당첨 번호를 입력해 주세요.\n');
     return input;
   },
+  async bonusNumber() {
+    const input = await Console.readLineAsync(
+      '\n보너스 번호를 입력해 주세요.\n'
+    );
+    return Number(input);
+  },
 };
 
 export default Input;
