@@ -7,6 +7,7 @@ class App {
     const purchaseAmount = await Input.purchaseAmount();
     const lottos = LottoGeneratorService.generate(purchaseAmount);
     Output.printLottos(lottos);
+    const winningNumbers = await Input.winningNumbers();
   }
 }
 
