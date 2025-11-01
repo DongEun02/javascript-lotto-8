@@ -2,6 +2,7 @@ import Input from './view/Input.js';
 import LottoGeneratorService from './service/LottoGeneratorService.js';
 import Output from './view/output.js';
 import WinningNumberService from './service/WinningNumberService.js';
+import LottoResultService from './service/LottoResultService.js';
 
 class App {
   async run() {
@@ -12,6 +13,11 @@ class App {
     const winningNumbers =
       WinningNumberService.createWinningLotto(winningNumbersString);
     const bonusNumber = await Input.bonusNumber();
+    const result = LottoResultService.getResult(
+      lottos,
+      winningNumbers,
+      bonusNumber
+    );
   }
 }
 
