@@ -3,6 +3,7 @@ import LottoGeneratorService from './service/LottoGeneratorService.js';
 import Output from './view/output.js';
 import WinningNumberService from './service/WinningNumberService.js';
 import LottoResultService from './service/LottoResultService.js';
+import ProfitService from './service/ProfitService.js';
 
 class App {
   async run() {
@@ -18,6 +19,7 @@ class App {
       winningNumbers,
       bonusNumber
     );
+    const profit = ProfitService.calculateRate(result, purchaseAmount);
   }
 }
 
