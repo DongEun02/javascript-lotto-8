@@ -20,6 +20,7 @@ class App {
       bonusNumber
     );
     const profit = ProfitService.calculateRate(result, purchaseAmount);
+    Output.printResult(result, profit);
   }
 }
 
