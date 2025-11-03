@@ -30,13 +30,14 @@ const InputValidator = {
   },
 
   validateBonusNumber(bonus, winningNumbers) {
+    const numbers = winningNumbers.getNumbers();
     if (isNaN(bonus)) {
       throw new Error(ERROR_MESSAGE.INVALID_BONUS_NUMBER_TYPE);
     }
     if (bonus < 1 || bonus > 45) {
       throw new Error(ERROR_MESSAGE.BONUS_NUMBER_OUT_OF_RANGE);
     }
-    if (winningNumbers.includes(bonus)) {
+    if (numbers.includes(bonus)) {
       throw new Error(ERROR_MESSAGE.BONUS_NUMBER_DUPLICATED_WITH_WINNING);
     }
   },

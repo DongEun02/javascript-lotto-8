@@ -11,16 +11,22 @@ class App {
     const purchaseAmount = await this.getPurchaseAmount();
     const lottos = this.createLottos(purchaseAmount);
 
-    const { winningNumbers, bonusNumber } = await this.getWinningInfo();
+    const winningNumbers = await this.getWinningNumbers();
+    const bonusNumber = await this.getBonusNumber(winningNumbers);
     const result = this.calculateResult(lottos, winningNumbers, bonusNumber);
 
     this.printSummary(result, purchaseAmount);
   }
 
   async getPurchaseAmount() {
-    const amount = await Input.purchaseAmount();
-    InputValidator.validatePurchaseAmount(amount);
-    return amount;
+    try {
+      const amount = await Input.purchaseAmount();
+      InputValidator.validatePurchaseAmount(amount);
+      return amount;
+    } catch (error) {
+      Output.printError(error.message);
+      return this.getPurchaseAmount();
+    }
   }
 
   createLottos(amount) {
@@ -29,18 +35,30 @@ class App {
     return lottos;
   }
 
-  async getWinningInfo() {
-    const winningNumbersString = await Input.winningNumbers();
-    InputValidator.validateWinningNumbers(winningNumbersString);
-    InputValidator.validateParsingNumbers(winningNumbersString);
+  async getWinningNumbers() {
+    try {
+      const winningNumbersString = await Input.winningNumbers();
+      InputValidator.validateWinningNumbers(winningNumbersString);
+      InputValidator.validateParsingNumbers(winningNumbersString);
 
-    const winningNumbers =
-      WinningNumberService.createWinningLotto(winningNumbersString);
+      const winningNumbers =
+        WinningNumberService.createWinningLotto(winningNumbersString);
+      return winningNumbers;
+    } catch (error) {
+      Output.printError(error.message);
+      return this.getWinningNumbers();
+    }
+  }
 
-    const bonusNumber = await Input.bonusNumber();
-    InputValidator.validateBonusNumber(bonusNumber, winningNumbersString);
-
-    return { winningNumbers, bonusNumber };
+  async getBonusNumber(winningNumbers) {
+    try {
+      const bonusNumber = await Input.bonusNumber();
+      InputValidator.validateBonusNumber(bonusNumber, winningNumbers);
+      return bonusNumber;
+    } catch (error) {
+      Output.printError(error.message);
+      return this.getBonusNumber(winningNumbers);
+    }
   }
 
   calculateResult(lottos, winningNumbers, bonusNumber) {

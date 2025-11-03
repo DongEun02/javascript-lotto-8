@@ -25,6 +25,9 @@ const Output = {
     Console.print(`6개 일치 (${PRIZE.FIRST}원) - ${result.FIRST}개`);
     Console.print(`총 수익률은 ${profitRate}%입니다.`);
   },
+  printError(message) {
+    Console.print(message);
+  },
 };
 
 export default Output;
