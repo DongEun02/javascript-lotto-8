@@ -1,4 +1,5 @@
 import InputValidator from './InputValidator.js';
+import Lotto from '../domain/Lotto.js';
 import { ERROR_MESSAGE } from '../constants/message.js';
 
 describe('InputValidator', () => {
@@ -74,14 +75,14 @@ describe('InputValidator', () => {
       [46, ERROR_MESSAGE.BONUS_NUMBER_OUT_OF_RANGE],
       [3, ERROR_MESSAGE.BONUS_NUMBER_DUPLICATED_WITH_WINNING],
     ])('보너스번호 입력 오류 시 에러가 발생한다.', (bonus, expectedError) => {
-      const winningNumbers = [1, 2, 3, 4, 5, 6];
+      const winningNumbers = new Lotto([1, 2, 3, 4, 5, 6]);
       expect(() =>
         InputValidator.validateBonusNumber(bonus, winningNumbers)
       ).toThrow(expectedError);
     });
 
     test('정상 입력 시 에러 발생하지 않음', () => {
-      const winningNumbers = [1, 2, 3, 4, 5, 6];
+      const winningNumbers = new Lotto([1, 2, 3, 4, 5, 6]);
       expect(() =>
         InputValidator.validateBonusNumber(7, winningNumbers)
       ).not.toThrow();
