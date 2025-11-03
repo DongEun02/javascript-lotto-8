@@ -1,4 +1,4 @@
-import ProfitService from './ProfitService.js';
+import ProfitService from '../src/service/ProfitService.js';
 
 describe('ProfitService', () => {
   test('등수별 개수에 따른 총 상금이 정확히 계산된다.', () => {

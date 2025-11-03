@@ -1,5 +1,5 @@
 import { Random } from '@woowacourse/mission-utils';
-import LottoGeneratorService from './LottoGeneratorService.js';
+import LottoGeneratorService from '../src/service/LottoGeneratorService.js';
 
 describe('LottoGeneratorService', () => {
   beforeEach(() => {

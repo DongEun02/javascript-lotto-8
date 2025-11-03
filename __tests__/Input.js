@@ -1,5 +1,5 @@
 import { Console } from '@woowacourse/mission-utils';
-import Input from './Input.js';
+import Input from '../src/view/Input.js';
 
 describe('Input 모듈 테스트', () => {
   beforeEach(() => {

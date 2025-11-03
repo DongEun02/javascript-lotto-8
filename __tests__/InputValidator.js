@@ -1,6 +1,6 @@
-import InputValidator from './InputValidator.js';
-import Lotto from '../domain/Lotto.js';
-import { ERROR_MESSAGE } from '../constants/message.js';
+import InputValidator from '../src/validator/InputValidator.js';
+import Lotto from '../src/domain/Lotto.js';
+import { ERROR_MESSAGE } from '../src/constants/message.js';
 
 describe('InputValidator', () => {
   describe('validatePurchaseAmount', () => {

@@ -1,4 +1,4 @@
-import LottoResultService from './LottoResultService.js';
+import LottoResultService from '../src/service/LottoResultService.js';
 
 describe('LottoResultService', () => {
   const winningLotto = {

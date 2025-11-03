@@ -1,5 +1,5 @@
 import { Console } from '@woowacourse/mission-utils';
-import Output from './output';
+import Output from '../src/view/output';
 
 describe('Output 모듈 테스트', () => {
   beforeEach(() => {

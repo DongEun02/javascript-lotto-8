@@ -1,5 +1,5 @@
-import WinningNumberService from './WinningNumberService';
-import Lotto from '../domain/Lotto.js';
+import WinningNumberService from '../src/service/WinningNumberService.js';
+import Lotto from '../src/domain/Lotto.js';
 
 describe('WinningNumberService', () => {
   test('쉼표로 구분된 문자열을 숫자 배열로 변환한다.', () => {
